@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+
+<form action = "" method = "POST">
+    {% csrf_token %}
+    <p>Are you Sure to Delete?</p>
+    <input type ="submit" value="confirm">
+    <a  href="{% url 'home' %}">cancel</a>
+</form>
+
+
+
+
+
+
+
+{% endblock %}
