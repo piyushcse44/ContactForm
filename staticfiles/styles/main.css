@@ -1,0 +1,15 @@
+.head{
+    color: green;
+}
+body{
+    color: red;
+}
+.home_title{
+    color: blue;
+}
+.heading{
+    background-color: chartreuse;
+}
+.item{
+    background-color: rgb(23, 190, 202);
+}

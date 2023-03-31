@@ -21,7 +21,7 @@ def home(request):
 def CreateForm(request):
     
     if request.method == "POST":
-        form = FormSerializer(request.POST)
+        form = FormSerializer(request.POST,request.FILES)
         if form.is_valid :
             form.save()
             return redirect('home')
@@ -37,7 +37,7 @@ def UpdateForm(request,pk):
     formobject = get_object_or_404(ContactForm,id =pk)
     
     if(request.method == "POST"):
-        form = FormSerializer(request.POST,instance=formobject)
+        form = FormSerializer(request.POST,request.FILES,instance=formobject)
         if form.is_valid :
             form.save()
             return redirect('home')
@@ -61,6 +61,14 @@ def DeleteForm(request,pk):
         return render(request,'form/DeleteConfirmation.html',context= context)
     except:
         return HttpResponse("id is invalid")
+
+def ViewForm(request,pk):
+    try:
+        formobj = get_object_or_404(ContactForm,id =pk)        
+        return render(request,'form/ViewFormData.html',{'form':formobj})
+       
+    except:
+        return HttpResponse("Invalid Id")            
 
 
 
