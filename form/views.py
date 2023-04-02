@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from form.serializer import FormSerializer
 from form.models import ContactForm
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -17,7 +18,7 @@ def home(request):
     return render(request,'home.html',data)
 
 
-
+@login_required(login_url='login')
 def CreateForm(request):
     
     if request.method == "POST":
@@ -31,7 +32,7 @@ def CreateForm(request):
     context = {'form':formdata}        
     return render(request,'form/ContactForm.html',context)
 
-
+@login_required(login_url='login')
 def UpdateForm(request,pk):
     
     formobject = get_object_or_404(ContactForm,id =pk)
@@ -47,6 +48,7 @@ def UpdateForm(request,pk):
     context = {'form':formdata}
     return render(request,'form/ContactForm.html',context)
 
+@login_required(login_url='login')
 def DeleteForm(request,pk):
     try :
         formobject = get_object_or_404(ContactForm,id =pk)

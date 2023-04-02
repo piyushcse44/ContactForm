@@ -1,29 +1,51 @@
-
 {% extends 'main.html' %}
+{% load static %}
+{% block css %}
 
+<link rel="stylesheet" href="{% static 'styles/home.css' %}">
+
+{% endblock %}
 
 {% block content %}
 
 <p class="home_title">{{home_title}}</p>
-<table border="1px">
-    <tr class ="heading">
+<div class="table-container">
+  <table>
+    <thead>
+      <tr class="heading">
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
-        <th><a href = "{% url 'create' %}"><button>Create</button></a></th>
-    </tr>
-    {% for dataobj in dataset %}
-    <tr class = item>
-        <td>{{dataobj.id}}</td>
-        <td>{{dataobj.Name}}</td>
-        <td>{{dataobj.Email}}</td>
-        <td><a href = "{% url 'update' dataobj.id %}"><button>Update</button></a></td>
-        <td><a href = "{% url 'delete' dataobj.id %}"><button>Delete</button></a></td>
-        <td><a href = "{% url 'view' dataobj.id %}"><button>View</button></a></td>
-        
+        <th><a href="{% url 'create' %}"><button>Create</button></a></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dataobj in dataset %}
+        <tr class="item">
+          <td>{{dataobj.id}}</td>
+          <td>{{dataobj.Name}}</td>
+          <td>{{dataobj.Email}}</td>
+          {% if request.user.is_authenticated  %}
+          <td><a href="{% url 'update' dataobj.id %}"><button>Update</button></a></td>
+          <td><a href="{% url 'delete' dataobj.id %}"><button>Delete</button></a></td>
+          {% endif %}
+          <td><a href="{% url 'view' dataobj.id %}"><button>View</button></a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
-    </tr>
-    
-    {% endfor %}
-</table>
-{% endblock content %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  // Add scroll bar to table
+  const tableContainer = document.querySelector('.table-container');
+  const table = document.querySelector('table');
+  tableContainer.style.overflowX = 'auto';
+  tableContainer.style.maxHeight = '300px';
+  tableContainer.style.padding = '0 16px';
+  table.style.minWidth = '600px';
+</script>
+{% endblock %}

@@ -1,0 +1,144 @@
+/* Styling for table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Styling for table headings */
+  .heading th {
+    background-color: #ddd;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  /* Styling for table data */
+  .item td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* Styling for "Create" button */
+  .item .create-btn button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Styling for "Update" button */
+  .item .update-btn button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Styling for "Delete" button */
+  .item .delete-btn button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Styling for "View" button */
+  .item .view-btn button {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Styling for home title */
+  .home_title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for whole page container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Styling for body background */
+  body {
+    background-color: #f2f2f2;
+  }
+  
+  /* Styling for link */
+  a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  
+  /* Styling for link hover */
+  a:hover {
+    text-decoration: underline;
+  }
+  .contact_form {
+    max-height: 400px; /* set a maximum height */
+    overflow-y: scroll; /* enable vertical scrollbar */
+  }
+  
+  /* style the form elements */
+  label, input, textarea {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+  
+  .submit_for_contact_form {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
